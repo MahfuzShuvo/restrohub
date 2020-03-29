@@ -5,13 +5,13 @@ use App\Models\Menu;
 
 class MenuService
 {
-	public function getMenuWithCategory(array $restro_ids)
+	public function getMenuWithCategory($restroId)
 	{
 
-        $categories = Menu::whereIn('restro_id', $restro_ids)
+        $menuItems = Menu::where('restro_id', $restroId)
                         ->get()
                         ->groupBy('category.name');
 
-        return $categories;
+        return $menuItems;
 	}
 }

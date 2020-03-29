@@ -2,6 +2,6 @@
 
 @section('content')
 <div class="container">
-    <menu-container :items = "{{ json_encode($menus) }}"></menu-container>
+    <menu-container :items = "{{ json_encode($menus) }}" :restro-id = {{ $restroId }}></menu-container>
 </div>
 @endsection

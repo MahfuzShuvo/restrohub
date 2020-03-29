@@ -5,6 +5,7 @@
  */
 
 require('./bootstrap');
+require('vue-multiselect/dist/vue-multiselect.min.css');
 
 window.Vue = require('vue');
 
@@ -29,6 +30,7 @@ Vue.component('card-component', require('./components/Card.vue').default);
 
 
 Vue.component('menu-container', require('./modules/menu/MenuContainer.vue').default);
+// Vue.component('menu-group', require('./modules/menu/MenuGroups.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

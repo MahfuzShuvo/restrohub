@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Services\MenuService;
+use App\Services\RestroService;
+use App\Models\Menu;
 
 class HomeController extends Controller
 {
@@ -22,10 +24,13 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index(MenuService $service)
+    public function index(MenuService $service, RestroService $restroService)
     {
+        $restroId = 1;
+        $menus = $service->getMenuWithCategory($restroId);
 
-        $menus = $service->getMenuWithCategory([1]);
-        return view('home', compact('menus'));
+        $restros = $restroService->userRestroAndTables();
+        
+        return view('home', compact('menus', 'restroId', 'restros'));
     }
 }
