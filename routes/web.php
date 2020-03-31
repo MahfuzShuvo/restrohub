@@ -21,4 +21,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-// Route::post('/item', 'MenuController@saveMenuItem');
+Route::get('/restros', 'RestaurantController@index')->name('restros');
+
+Route::get('/restros/menu/{id}', 'MenuController@index')->name('restros.menu');
+

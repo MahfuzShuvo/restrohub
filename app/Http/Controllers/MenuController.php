@@ -6,10 +6,23 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Menu;
 
+use App\Services\MenuService;
+
 use App\Rules\RestroCategoryValidation;
 
 class MenuController extends Controller
 {
+
+    public function index($id)
+    {
+        $restroId = $id;
+
+        $service = new MenuService;
+        $menus = $service->getMenuWithCategory($restroId);
+
+        return view('menu.menu-index', compact('menus', 'restroId'));
+    }
+
     public function saveMenuItem(Request $request)
     {
     	$postData = $this->validate($request, [
