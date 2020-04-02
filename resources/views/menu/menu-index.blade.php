@@ -1,5 +1,14 @@
 @extends('layouts.app')
 
+@section('style')
+	{{-- <style type="text/css">
+		.table td {
+			white-space: normal;
+			line-height: normal;
+		}
+	</style> --}}
+@endsection
+
 @section('content')
 <div class="container">
 	

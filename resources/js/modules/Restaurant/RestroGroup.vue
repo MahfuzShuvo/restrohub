@@ -4,21 +4,30 @@
 			<div class="col-md-4 mb-4" v-for="restro in localRestro" :key="restro.id">
 				<card-component>
 					<template slot="title">{{ restro.name }}</template>
-					<template slot="body">
-						{{ restro.location }}
-						<br>
-						<a v-bind:href="restro.slug" class="card-link">Menu</a>
+					<template slot="body" style="text-align: center;">
+						<div class="body-box">
+							<i class="fa fa-map-marker" aria-hidden="true"></i> <span style="padding-left: 10px; font-family: monospace;">{{ restro.location }}</span>
+							<br>
+							<i class="fa fa-table" aria-hidden="true"></i> <span style="padding-left: 10px; font-family: monospace;">{{ restro.tables }} tables</span>
+						</div>
+						
+						
+						<div class="menu-box">
+							<a v-bind:href="restro.slug" class="card-link btn btn-outline-primary">Menu</a>
+							<a v-bind:href="restro.orderSlug" class="card-link btn btn-outline-warning">Orders</a>
+							<a href="#" class="card-link btn btn-outline-success">Manage</a>
+						</div>
 					</template>
 				</card-component>
 			</div>
 
-			<div class="col-md-4" v-if="showAddForm">
-				<card-component>
-					<template slot="title">Add new Restaurant</template>
-					<template slot="body">
-						<span @click="handleAddNewRestro">+</span>
-					</template>
-				</card-component>
+			<div class="col-md-4" v-if="showAddForm" >
+			    <div class="card">
+			    	<div class="card-body" style="height: 294px; display: flex; align-items: center; justify-content: center;">
+			    		<button class="btn btn-dark btn-icons btn-rounded" @click="handleAddNewRestro" style="width: 100px; height: 100px; border-radius: 50%; font-size: 40px;"><i class="fa fa-plus"></i></button>
+			    	</div>
+			    </div>
+				
 			</div>
 
 			<modal name="add-new-restro" height="60%">

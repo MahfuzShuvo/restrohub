@@ -2273,6 +2273,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -38840,23 +38849,76 @@ var render = function() {
                     _vm._v(_vm._s(restro.name))
                   ]),
                   _vm._v(" "),
-                  _c("template", { slot: "body" }, [
-                    _vm._v(
-                      "\n\t\t\t\t\t\t" +
-                        _vm._s(restro.location) +
-                        "\n\t\t\t\t\t\t"
-                    ),
-                    _c("br"),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "card-link",
-                        attrs: { href: restro.slug }
-                      },
-                      [_vm._v("Menu")]
-                    )
-                  ])
+                  _c(
+                    "template",
+                    { staticStyle: { "text-align": "center" }, slot: "body" },
+                    [
+                      _c("div", { staticClass: "body-box" }, [
+                        _c("i", {
+                          staticClass: "fa fa-map-marker",
+                          attrs: { "aria-hidden": "true" }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          {
+                            staticStyle: {
+                              "padding-left": "10px",
+                              "font-family": "monospace"
+                            }
+                          },
+                          [_vm._v(_vm._s(restro.location))]
+                        ),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("i", {
+                          staticClass: "fa fa-table",
+                          attrs: { "aria-hidden": "true" }
+                        }),
+                        _vm._v(" "),
+                        _c(
+                          "span",
+                          {
+                            staticStyle: {
+                              "padding-left": "10px",
+                              "font-family": "monospace"
+                            }
+                          },
+                          [_vm._v(_vm._s(restro.tables) + " tables")]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "menu-box" }, [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "card-link btn btn-outline-primary",
+                            attrs: { href: restro.slug }
+                          },
+                          [_vm._v("Menu")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "card-link btn btn-outline-warning",
+                            attrs: { href: restro.orderSlug }
+                          },
+                          [_vm._v("Orders")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "card-link btn btn-outline-success",
+                            attrs: { href: "#" }
+                          },
+                          [_vm._v("Manage")]
+                        )
+                      ])
+                    ]
+                  )
                 ],
                 2
               )
@@ -38866,28 +38928,38 @@ var render = function() {
         }),
         _vm._v(" "),
         _vm.showAddForm
-          ? _c(
-              "div",
-              { staticClass: "col-md-4" },
-              [
+          ? _c("div", { staticClass: "col-md-4" }, [
+              _c("div", { staticClass: "card" }, [
                 _c(
-                  "card-component",
+                  "div",
+                  {
+                    staticClass: "card-body",
+                    staticStyle: {
+                      height: "294px",
+                      display: "flex",
+                      "align-items": "center",
+                      "justify-content": "center"
+                    }
+                  },
                   [
-                    _c("template", { slot: "title" }, [
-                      _vm._v("Add new Restaurant")
-                    ]),
-                    _vm._v(" "),
-                    _c("template", { slot: "body" }, [
-                      _c("span", { on: { click: _vm.handleAddNewRestro } }, [
-                        _vm._v("+")
-                      ])
-                    ])
-                  ],
-                  2
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-dark btn-icons btn-rounded",
+                        staticStyle: {
+                          width: "100px",
+                          height: "100px",
+                          "border-radius": "50%",
+                          "font-size": "40px"
+                        },
+                        on: { click: _vm.handleAddNewRestro }
+                      },
+                      [_c("i", { staticClass: "fa fa-plus" })]
+                    )
+                  ]
                 )
-              ],
-              1
-            )
+              ])
+            ])
           : _vm._e(),
         _vm._v(" "),
         _c("modal", { attrs: { name: "add-new-restro", height: "60%" } }, [

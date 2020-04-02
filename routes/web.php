@@ -17,11 +17,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['middleware' => 'auth'], function() {
 
-Route::get('/restros', 'RestaurantController@index')->name('restros');
+	Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/restros/menu/{id}', 'MenuController@index')->name('restros.menu');
+	Route::get('/restaurants', 'RestaurantController@index')->name('restros');
+	Route::get('/restaurants/menu/{id}', 'MenuController@index')->name('restros.menu');
+
+	Route::get('/restaurants/order/{id}', 'OrderController@index')->name('restros.order');
+
+	Route::get('/index', 'PagesController@dashboard');
+
+});
+
+
 
